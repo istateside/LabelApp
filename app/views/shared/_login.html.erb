@@ -1,0 +1,7 @@
+<% if current_user.nil? %>
+  <%= button_to "Sign in", new_session_url, method: :get %> or
+  <%= button_to "Sign up", new_user_url, method: :get %>
+<% else %>
+  Logged in as: <%= current_user.email %>
+  <%= button_to "Logout", session_url, method: :delete %>
+<% end %>

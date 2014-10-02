@@ -1,6 +1,6 @@
 <h1><%= @album.band.name%> - <%= @album.name %></h1>
 
-<%= render 'shared/track_list', album: @album %>
+<%= render 'track_list', album: @album %>
 <br>
 <a href="<%= new_album_track_url(@album) %>">Add a track to this album</a>
 <a href="<%= band_url(@album.band) %>">

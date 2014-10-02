@@ -1,4 +1,12 @@
 <h1>Add an Album to the Nightvale Catalog</h1>
+
+<% if !!@album.errors.full_messages %>
+  <ul><% @album.errors.full_messages.each do |msg| %>
+    <li> <%= msg %> </li>
+  </ul>
+  <% end %>
+<% end %>
+
   <% if @album.persisted? %>
     <form action="<%= album_url(@album) %>" method="POST">
       <input type="hidden" name="_method" value="PATCH">

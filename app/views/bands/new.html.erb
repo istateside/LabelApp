@@ -1,8 +1,16 @@
 <% if @band.persisted? %>
   <form action="<%= band_url(@band) %>" method="POST">
   <input type="hidden" name="_method" value="PATCH">
+  <h1>Edit <%= @band.name %></h1>
 <% else %>
   <form action="<%= bands_url %>" method="POST">
+    <h1>Add a Band to the Nightvale Catalog</h1>
+<% end %>
+<% if !!@band.errors.full_messages %>
+  <ul><% @band.errors.full_messages.each do |msg| %>
+    <li> <%= msg %> </li>
+  </ul>
+  <% end %>
 <% end %>
     <%= auth_token %>
     <label for="band_name">Band Name</label>

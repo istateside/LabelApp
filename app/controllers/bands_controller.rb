@@ -1,4 +1,6 @@
 class BandsController < ApplicationController
+  before_filter :check_log_in
+
   def index
     render :index
   end

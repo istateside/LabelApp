@@ -1,4 +1,4 @@
-<h1>Add an Album to the Discography of <%= @band.name %></h1>
+<h1>Add an Album to the Nightvale Catalog</h1>
   <% if @album.persisted? %>
     <form action="<%= album_url(@album) %>" method="POST">
       <input type="hidden" name="_method" value="PATCH">

@@ -8,6 +8,16 @@ module ApplicationHelper
     HTML
   end
 
+  def ugly_lyrics(lyrics)
+    new_lyrics = lyrics.split("\n")
+    new_lyrics.map! do |line|
+     "&#9835; #{h(line)}"
+    end
+    return <<-HTML.html_safe
+    #{new_lyrics.join("<br>")}
+    HTML
+  end
+
   # def errors
 #     errors = []
 #

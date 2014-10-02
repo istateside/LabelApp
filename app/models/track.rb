@@ -17,4 +17,6 @@ class Track < ActiveRecord::Base
 
 
   belongs_to :album, :inverse_of => :tracks, dependent: :destroy
+
+  has_many :notes
 end

@@ -4,12 +4,16 @@
 <br>
 <br>
 ---------
-<br><%= @track.lyrics %><br>
+<br><%= ugly_lyrics(@track.lyrics) %><br>
 ---------
 <br>
 
 <br>
 <a href="<%= edit_track_url(@track) %>">Edit this track</a>
 <br>
+<% @track.notes.each do |note| %>
+<%= render 'notes/note', note: note %>
+<% end %>
+<%= render 'notes/form', track: @track %><br>
 <a href="<%= band_url(@track.album.band) %>">Back to <%= @track.album.band.name %></a><br>
 <a href="<%= album_url(@track.album) %>">Back to <%= @track.album.name %></a>

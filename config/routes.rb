@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root :to => 'bands#index'
+
   resources :users, only: [:create, :new, :show]
 
   resources :bands do
@@ -10,7 +12,11 @@ Rails.application.routes.draw do
     resources :tracks, only: [:new]
   end
 
-  resources :tracks, only: [:create, :edit, :show, :update, :destroy]
+  resources :tracks, only: [:create, :edit, :show, :update, :destroy] do
+    resources :notes, only: [:new, :create]
+  end
+
+  resources :notes, only: [:destroy]
 
   resource :session, only: [:create, :destroy, :new]
 

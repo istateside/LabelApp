@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  before_filter :check_log_in
+
   def show
     @album = Album.find(params[:id])
     render :show

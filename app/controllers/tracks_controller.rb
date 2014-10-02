@@ -1,11 +1,13 @@
 class TracksController < ApplicationController
+  before_filter :check_log_in
+
   def show
     @track = Track.find(params[:id])
     render :show
   end
 
   def new
-    @album = Album.find(params[:id])
+    @album = Album.find(params[:album_id])
     @track = @album.tracks.new
     render :new
   end
@@ -44,6 +46,6 @@ class TracksController < ApplicationController
 
   private
   def track_params
-    params.require(:track).permit(:title, :album_id, :bonus)
+    params.require(:track).permit(:title, :album_id, :bonus, :lyrics)
   end
 end

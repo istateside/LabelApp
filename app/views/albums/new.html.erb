@@ -1,0 +1,38 @@
+<h1>Add an Album to the Discography of <%= @band.name %></h1>
+  <% if @album.persisted? %>
+    <form action="<%= album_url(@album) %>" method="POST">
+      <input type="hidden" name="_method" value="PATCH">
+  <% else %>
+    <form action="<%= albums_url(@album) %>" method="POST">
+  <% end %>
+      <%= auth_token %>
+      <%= render 'shared/band_list' %>
+      <br><br>
+
+      <label for="album_name">Title</label>
+      <input
+      type="text"
+      name="album[name]"
+      id="album_name"
+      value="<%= @album.name %>">
+      <br><br>
+
+      <label for="live_album">Live</label>
+      <input
+        type="radio"
+        name="album[live]"
+        id="live_album"
+        value="true"
+        <%= "checked" if @album.live == "live" %>>
+
+      <label for="studio_album">Studio</label>
+      <input
+        type="radio"
+        name="album[live]"
+        id="studio album"
+        value="false"
+        <%= "checked" if @album.live == "studio" %>>
+      <br>
+
+      <input type="submit" value="Save this album">
+    </form>

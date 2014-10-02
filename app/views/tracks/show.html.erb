@@ -1,0 +1,15 @@
+
+<h1><%= @track.album.band.name %> - <%= @track.album.name %></h1>
+"<%= @track.title %>"
+<br>
+<br>
+---------
+<br><%= @track.lyrics %><br>
+---------
+<br>
+
+<br>
+<a href="<%= edit_track_url(@track) %>">Edit this track</a>
+<br>
+<a href="<%= band_url(@track.album.band) %>">Back to <%= @track.album.band.name %></a><br>
+<a href="<%= album_url(@track.album) %>">Back to <%= @track.album.name %></a>

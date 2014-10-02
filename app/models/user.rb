@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  email           :string(255)      not null
+#  password_digest :string(255)      not null
+#  session_token   :string(255)      not null
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+# Indexes
+#
+#  index_users_on_email          (email) UNIQUE
+#  index_users_on_session_token  (session_token)
+#
+
 class User < ActiveRecord::Base
   validates :email, presence: true
   validates :password_digest, presence: { message: "Password can't be blank" }

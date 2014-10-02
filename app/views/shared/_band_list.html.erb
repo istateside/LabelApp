@@ -1,0 +1,9 @@
+<select name="album[band_id]">
+  <% Band.all.each do |band| %>
+    <option
+      value="<%= band.id %>"
+      <%= default_band?(band) %>>
+      <%= band.name %>
+    </option>
+  <% end %>
+</select>

@@ -1,0 +1,10 @@
+<ul><strong>Albums</strong>
+<% unless band.albums.empty? %>
+  <% band.albums.each do |album| %>
+    <li><a href="<%= album_url(album) %>"><%= album.name %></a>
+      <%= render 'shared/track_list', album: album %>
+    </li>
+  <% end %>
+<% end %>
+</ul>
+<a href="<%= new_band_album_url(band) %>">Add an Album</a>

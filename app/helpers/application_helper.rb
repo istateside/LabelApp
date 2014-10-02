@@ -8,12 +8,19 @@ module ApplicationHelper
     HTML
   end
 
-  def errors
-    if flash.now[:errors]
-      flash.now[:errors].each { |error| error }
-    elsif flash[:errors]
-      flash[:errors].each { |error| error }
-    end
-  end
+  # def errors
+#     errors = []
+#
+#     flash.now[:errors].each { |error| errors << error } if !!flash.now[:errors]
+#     flash[:errors].each { |error| errors << error } if !!flash[:errors]
+#
+#     <<-HTML.html_safe
+#     <ul>
+#       #{errors.each do |error| }
+#         <li>#{print error}
+#       #{end}
+#     </ul>
+#     HTML
+#   end
 
 end

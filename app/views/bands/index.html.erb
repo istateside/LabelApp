@@ -1,0 +1,8 @@
+<h1>Nightvale Roster</h1>
+<ul>
+  <% Band.all.each do |band| %>
+  <li><a href="<%= band_url(band) %>"><%= band.name %></a></li>
+  <% end %>
+</ul>
+
+<a href="<%= new_band_url %>">Add a band to the Nightvale database</a>

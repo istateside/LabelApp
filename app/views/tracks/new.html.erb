@@ -1,0 +1,48 @@
+<h1>Add a Track to <%= @album.name %></h1>
+  <% if @track.persisted? %>
+    <form action="<%= track_url(@track) %>" method="POST">
+      <input type="hidden" name="_method" value="PATCH">
+  <% else %>
+    <form action="<%= tracks_url(@track) %>" method="POST">
+  <% end %>
+      <%= auth_token %>
+      <br><br>
+      <input type="hidden"
+        name="track[album_id]"
+        value="<%= @album.id %>">
+
+      <label for="track_title">Title</label>
+      <input
+      type="text"
+      name="track[title]"
+      id="track_title"
+      value="<%= @track.title %>">
+      <br><br>
+
+      <label for="bonus_track">Bonus Track</label>
+      <input
+        type="radio"
+        name="track[bonus]"
+        id="bonus_track"
+        value="true"
+        <%= "checked" if @track.bonus %>>
+
+      <label for="reg_track">Regular Track</label>
+      <input
+        type="radio"
+        name="track[bonus]"
+        id="reg_track"
+        value="false"
+        <%= "checked" unless @track.bonus %>>
+
+      <br>
+      <label for="lyric_box">Enter lyrics</label>
+      <textarea
+        name="track[lyrics]"
+        id="lyric_box"
+        value="<%= @track.lyrics %>">
+      </textarea>
+
+      <br>
+      <input type="submit" value="Save this track">
+    </form>
